@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextSummary | Инструмент для создания кратких текстовых резюме</title>
+    <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Описание сайта -->
+        <section class="intro-section">
+            <h1>TextSummary | Инструмент для создания кратких текстовых резюме с использованием ИИ</h1>
+            <p>Превращайте длинные тексты в краткие и понятные резюме за считанные секунды. Наш инструмент на базе ИИ поможет Вам быстро выделить ключевую информацию из любых документов, статей или заметок.</p>
+        </section>
+
+        <!-- Инструкция -->
+        <section class="instructions-section">
+            <h2>Как составить краткое содержание текста?</h2>
+            <p>Чтобы составить резюме с помощью нашего ИИ-суммаризатора, выполните следующие шаги:</p>
+            <div class="steps">
+                <div class="step step-1">
+                    <div class="step-number">01</div>
+                    <div class="step-text">Выберите язык и длину сжатия текста.</div>
+                </div>
+                <div class="step step-2">
+                    <div class="step-number">02</div>
+                    <div class="step-text">Введите текст в поле ввода или загрузите файл.</div>
+                </div>
+                <div class="step step-3">
+                    <div class="step-number">03</div>
+                    <div class="step-text">Нажмите кнопку «Суммаризировать» для формирования резюме и статистики суммаризации.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Панель управления -->
+        <div class="controls-bar">
+            <div class="control-group">
+                <label for="language-select">Язык:</label>
+                <div class="custom-select" id="language-select">
+                    <div class="select-selected" data-value="ru">
+                        Русский
+                    </div>
+                    <div class="select-items">
+                        <div data-value="ru">Русский</div>
+                        <div data-value="en">Английский</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="length-select">Длина:</label>
+                <div class="custom-select" id="length-select">
+                    <div class="select-selected" data-value="short">
+                        Короткая
+                    </div>
+                    <div class="select-items">
+                        <div data-value="short">Короткая</div>
+                        <div data-value="medium">Средняя</div>
+                        <div data-value="long">Длинная</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="summary-type-select">Способ суммаризации:</label>
+                <div class="custom-select" id="summary-type-select">
+                    <div class="select-selected" data-value="extractive">
+                        Экстрактивная
+                    </div>
+                    <div class="select-items">
+                        <div data-value="extractive">Экстрактивная</div>
+                        <div data-value="extractive_hierarchical">Экстрактивная иерархическая</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основной интерфейс -->
+        <main class="main-content">
+            <div class="panel left-panel">
+                <textarea id="input-text" placeholder="Введите или вставьте ваш текст здесь"></textarea>
+                <div class="left-panel-actions">
+
+                    <button id="upload-btn" class="button upload-btn">
+                        <span class="button__text">Загрузить файл</span>
+                        <span class="button__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" class="svg">
+                                <path d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z"></path>
+                                <path d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z"></path>
+                                <path d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z"></path>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <button id="summarize-btn" class="btn summarize-btn">
+                        <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+                            <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                        </svg>
+                        <span class="text">Суммаризировать</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel right-panel">
+                <textarea id="output-area" placeholder="Результат будет показан здесь" readonly></textarea>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Стили для описания сайта */
+.intro-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.intro-section h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.intro-section p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Стили для инструкции */
+.instructions-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.instructions-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+.instructions-section p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex: 1;
+    max-width: 400px;
+    align-self: flex-start;
+    min-height: 80px;
+}
+
+.step-1 {
+    order: 1;
+    align-self: flex-start;
+}
+
+.step-2 {
+    order: 2;
+    align-self: flex-start;
+}
+
+.step-3 {
+    order: 3;
+    align-self: center;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.step-number {
+    background: #1C1A1C;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.step .step-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.controls-bar {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.control-group label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Стили для кастомных выпадающих списков */
+.custom-select {
+    position: relative;
+    user-select: none;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.custom-select .select-selected {
+    background: white;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.custom-select .select-selected:hover {
+    background: #f0f0f0;
+}
+
+.custom-select .select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    z-index: 99;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-select .select-items div {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.custom-select .select-items div:hover {
+    background: #f0f0f0;
+}
+
+.custom-select .select-selected:after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.custom-select.select-open .select-selected:after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.custom-select.select-open .select-items {
+    display: block;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    height: 600px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+.panel {
+    flex: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.left-panel {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    resize: none;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+    margin-bottom: 15px;
+}
+
+/* Панель действий на левой панели */
+.left-panel-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Стили для кнопки "Загрузить файл" */
+.button {
+    position: relative;
+    min-width: 200px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    border: 1px solid #17795E;
+    background-color: #209978;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.button .button__text {
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.button .button__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background-color: #17795E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease;
+}
+
+.button .svg {
+    width: 20px;
+    fill: #fff;
+}
+
+/* Свойство, при котором расширяется иконка и исчезает текст при наведении */
+.button:hover {
+    background-color: #17795E;
+}
+
+.button:hover .button__text {
+    opacity: 0;
+}
+
+.button:hover .button__icon {
+    width: 100%;
+}
+
+.button:active .button__icon {
+    background-color: #146c54;
+}
+
+.button:active {
+    border-color: #146c54;
+}
+
+/* Стили для кнопки "Загрузить файл" */
+.upload-btn {
+    margin-right: auto;
+}
+
+/* Стили для кнопки "Суммаризировать" */
+.summarize-btn {
+    margin-left: auto;
+    padding: 10px 20px;
+    border-radius: 6px;
+    width: auto;
+}
+
+/* Стили для кнопки "Суммаризировать" с эффектом --- */
+.btn {
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: #1C1A1C;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+}
+
+.sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+    width: 20px;
+    height: 20px;
+}
+
+.text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: linear-gradient(0deg, #A47CF3, #683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+                inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+                0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+                0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+}
+
+.btn:hover .text {
+    color: white;
+}
+
+.btn:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+}
+
+.right-panel {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.output-area {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 200px;
+}
+
+.output-area p {
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        height: auto;
+    }
+    .controls-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .left-panel-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn {
+        width: 100%;
+        height: 40px;
+    }
+    .steps {
+        flex-direction: column;
+    }
+    .step {
+        min-width: 100%;
+    }
+}
